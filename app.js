@@ -55,6 +55,17 @@ function linkAttributes(item) {
   return item.external ? ' target="_blank" rel="noreferrer"' : "";
 }
 
+function applyLinkBehavior(anchor, item) {
+  anchor.href = item.href;
+  if (item.external) {
+    anchor.target = "_blank";
+    anchor.rel = "noreferrer";
+  } else {
+    anchor.removeAttribute("target");
+    anchor.removeAttribute("rel");
+  }
+}
+
 function renderNavigation() {
   elements.nav.innerHTML = data.navigation
     .map((item) => `<a href="${item.href}"${linkAttributes(item)}>${item.label}</a>`)
@@ -79,7 +90,8 @@ function renderHero() {
   elements.spotlightKicker.textContent = data.spotlight.kicker;
   elements.spotlightTitle.textContent = data.spotlight.title;
   elements.spotlightText.textContent = data.spotlight.text;
-  elements.spotlightLink.href = data.spotlight.href;
+  elements.spotlightLink.textContent = data.spotlight.label || "Mehr entdecken";
+  applyLinkBehavior(elements.spotlightLink, data.spotlight);
 
   elements.metricRibbon.innerHTML = data.metrics
     .map(
@@ -257,13 +269,16 @@ function renderContact() {
   elements.contactText.textContent = data.contact.text;
   elements.contactGrid.innerHTML = data.contact.cards
     .map(
-      (card, index) => `
+      (card, index) => {
+        const attrs = linkAttributes(card);
+        return `
         <article class="contact-card reveal-item" style="--delay:${index * 100}ms">
           <h3>${card.title}</h3>
           <p>${card.text}</p>
-          <a class="inline-link" href="${card.href}" target="_blank" rel="noreferrer">${card.label}</a>
+          <a class="inline-link" href="${card.href}"${attrs}>${card.label}</a>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -271,7 +286,7 @@ function renderContact() {
 function renderFooter() {
   elements.footerNote.textContent = data.footer.note;
   elements.footerLinks.innerHTML = data.footer.links
-    .map((link) => `<a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`)
+    .map((link) => `<a href="${link.href}"${linkAttributes(link)}>${link.label}</a>`)
     .join("");
 }
 
