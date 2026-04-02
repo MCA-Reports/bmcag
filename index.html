@@ -307,17 +307,30 @@
 <body>
   <div class="page-frame">
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Zur Startsektion">
-        <span class="brand-mark">BMCAG</span>
-        <span class="brand-copy">
-          <strong>Bangladeshi Muslim Community Association Germany</strong>
-          
-        </span>
-      </a>
+      <div class="site-header__topline">
+        <a class="brand" href="#top" aria-label="Zur Startsektion">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-mark-main">BM</span>
+            <span class="brand-mark-sub">CAG</span>
+          </span>
+          <span class="brand-copy">
+            <strong>BMCAG</strong>
+            <span>Bangladeshi Muslim Community Association Germany</span>
+          </span>
+        </a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        Navigation
-      </button>
+        <div class="header-utility">
+          <p class="header-status">
+            <span class="header-status-dot" aria-hidden="true"></span>
+            Lokale Datenkopie
+          </p>
+          <a class="header-cta" href="#resources">Ramadan Kalender</a>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          Menü
+        </button>
+      </div>
 
       <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"></nav>
     </header>
