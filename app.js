@@ -1,4 +1,4 @@
-const data = window.BMCAG_DATA;
+const data = window.BMCAG_DATA || {};
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let revealObserver;
 
@@ -16,6 +16,7 @@ const elements = {
   spotlightText: document.getElementById("spotlight-text"),
   spotlightLink: document.getElementById("spotlight-link"),
   metricRibbon: document.getElementById("metric-ribbon"),
+  pageLinksGrid: document.getElementById("page-links-grid"),
   missionTitle: document.getElementById("mission-title"),
   missionText: document.getElementById("mission-text"),
   missionImage: document.getElementById("mission-image"),
@@ -67,12 +68,20 @@ function applyLinkBehavior(anchor, item) {
 }
 
 function renderNavigation() {
+  if (!elements.nav || !Array.isArray(data.navigation) || elements.nav.childElementCount > 0) {
+    return;
+  }
+
   elements.nav.innerHTML = data.navigation
     .map((item) => `<a href="${item.href}"${linkAttributes(item)}>${item.label}</a>`)
     .join("");
 }
 
 function renderHero() {
+  if (!data.hero || !elements.heroTitle || !elements.heroSummary || !elements.heroActions) {
+    return;
+  }
+
   elements.heroEyebrow.textContent = data.hero.eyebrow;
   elements.heroTitle.textContent = data.hero.title;
   elements.heroSummary.textContent = data.hero.summary;
@@ -105,7 +114,30 @@ function renderHero() {
     .join("");
 }
 
+function renderPageLinks() {
+  if (!elements.pageLinksGrid || !Array.isArray(data.pages)) {
+    return;
+  }
+
+  elements.pageLinksGrid.innerHTML = data.pages
+    .map(
+      (page, index) => `
+        <a class="page-link-card reveal-item" href="${page.href}" style="--delay:${index * 70}ms">
+          <p class="card-kicker">${page.kicker}</p>
+          <h3>${page.title}</h3>
+          <p>${page.text}</p>
+          <span class="page-link-arrow">Seite ansehen</span>
+        </a>
+      `
+    )
+    .join("");
+}
+
 function renderMission() {
+  if (!data.mission || !elements.missionTitle || !elements.missionHighlights) {
+    return;
+  }
+
   elements.missionTitle.textContent = data.mission.title;
   elements.missionText.textContent = data.mission.text;
   elements.missionImage.src = data.mission.image;
@@ -116,6 +148,10 @@ function renderMission() {
 }
 
 function renderEvents() {
+  if (!data.events || !elements.eventsTitle || !elements.eventsGrid) {
+    return;
+  }
+
   elements.eventsTitle.textContent = data.events.title;
   elements.eventsText.textContent = data.events.text;
   elements.eventsGrid.innerHTML = data.events.items
@@ -134,6 +170,10 @@ function renderEvents() {
 }
 
 function renderServices() {
+  if (!data.services || !elements.servicesTitle || !elements.servicesGrid) {
+    return;
+  }
+
   elements.servicesTitle.textContent = data.services.title;
   elements.servicesText.textContent = data.services.text;
   elements.servicesGrid.innerHTML = data.services.items
@@ -150,6 +190,10 @@ function renderServices() {
 }
 
 function renderLeadership() {
+  if (!data.leadership || !elements.leadershipTitle || !elements.leadershipGrid) {
+    return;
+  }
+
   elements.leadershipTitle.textContent = data.leadership.title;
   elements.leadershipText.textContent = data.leadership.text;
   elements.leadershipGrid.innerHTML = data.leadership.members
@@ -171,6 +215,10 @@ function renderLeadership() {
 }
 
 function renderVoices() {
+  if (!data.voices || !elements.voicesTitle || !elements.voicesGrid) {
+    return;
+  }
+
   elements.voicesTitle.textContent = data.voices.title;
   elements.voicesText.textContent = data.voices.text;
   elements.voicesGrid.innerHTML = data.voices.items
@@ -192,6 +240,10 @@ function renderVoices() {
 }
 
 function renderGallery() {
+  if (!data.gallery || !elements.galleryTitle || !elements.galleryGrid) {
+    return;
+  }
+
   elements.galleryTitle.textContent = data.gallery.title;
   elements.galleryText.textContent = data.gallery.text;
   elements.galleryGrid.innerHTML = data.gallery.items
@@ -207,6 +259,10 @@ function renderGallery() {
 }
 
 function renderPartners() {
+  if (!data.partners || !elements.partnersTitle || !elements.partnerStats || !elements.partnersGrid) {
+    return;
+  }
+
   elements.partnersTitle.textContent = data.partners.title;
   elements.partnersText.textContent = data.partners.text;
   elements.partnerStats.innerHTML = data.partners.stats
@@ -234,6 +290,10 @@ function renderPartners() {
 }
 
 function renderResources(query = "") {
+  if (!data.resources || !elements.resourceCount || !elements.resourceGrid) {
+    return;
+  }
+
   const normalized = query.trim().toLowerCase();
   const items = data.resources.items.filter((item) =>
     item.city.toLowerCase().includes(normalized)
@@ -259,12 +319,20 @@ function renderResources(query = "") {
 }
 
 function renderResourcePanel() {
+  if (!data.resources || !elements.resourcesTitle || !elements.resourcesText) {
+    return;
+  }
+
   elements.resourcesTitle.textContent = data.resources.title;
   elements.resourcesText.textContent = data.resources.text;
   renderResources();
 }
 
 function renderContact() {
+  if (!data.contact || !elements.contactTitle || !elements.contactGrid) {
+    return;
+  }
+
   elements.contactTitle.textContent = data.contact.title;
   elements.contactText.textContent = data.contact.text;
   elements.contactGrid.innerHTML = data.contact.cards
@@ -284,6 +352,10 @@ function renderContact() {
 }
 
 function renderFooter() {
+  if (!data.footer || !elements.footerNote || !elements.footerLinks) {
+    return;
+  }
+
   elements.footerNote.textContent = data.footer.note;
   elements.footerLinks.innerHTML = data.footer.links
     .map((link) => `<a href="${link.href}"${linkAttributes(link)}>${link.label}</a>`)
@@ -291,6 +363,10 @@ function renderFooter() {
 }
 
 function setupMenu() {
+  if (!elements.menuToggle || !elements.nav) {
+    return;
+  }
+
   elements.menuToggle.addEventListener("click", () => {
     const isOpen = elements.nav.classList.toggle("is-open");
     elements.menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -307,6 +383,10 @@ function setupMenu() {
 }
 
 function setupResources() {
+  if (!elements.resourceSearch) {
+    return;
+  }
+
   elements.resourceSearch.addEventListener("input", (event) => {
     renderResources(event.target.value);
     setupReveal();
@@ -358,6 +438,7 @@ function setupReveal() {
 function init() {
   renderNavigation();
   renderHero();
+  renderPageLinks();
   renderMission();
   renderEvents();
   renderServices();

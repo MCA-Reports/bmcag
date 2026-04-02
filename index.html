@@ -18,15 +18,15 @@
         source: "Lokale Datenkopie"
       },
       navigation: [
-        { label: "Start", href: "#top" },
-        { label: "Mission", href: "#mission" },
-        { label: "Events", href: "#events" },
-        { label: "Services", href: "#services" },
-        { label: "Team", href: "#leadership" },
-        { label: "Galerie", href: "#gallery" },
-        { label: "Partner", href: "#partners" },
-        { label: "Ressourcen", href: "#resources" },
-        { label: "Kontakt", href: "#contact" }
+        { label: "Start", href: "index.html" },
+        { label: "Mission", href: "mission.html" },
+        { label: "Events", href: "events.html" },
+        { label: "Services", href: "services.html" },
+        { label: "Team", href: "team.html" },
+        { label: "Galerie", href: "gallery.html" },
+        { label: "Partner", href: "partners.html" },
+        { label: "Ressourcen", href: "resources.html" },
+        { label: "Kontakt", href: "contact.html" }
       ],
       hero: {
         eyebrow: "Bangladeshi Muslim Community Association Germany",
@@ -34,8 +34,8 @@
         summary: "BMCAG fördert den Zusammenhalt und unterstützt die Interessen der muslimischen bangladeschischen Gemeinschaft in Deutschland mit Veranstaltungen, Beratung und kulturellem Austausch.",
         image: "media/2025/10/b0c7f757d122bafd5186c7b09fccfb60d89ec7e9.jpg",
         actions: [
-          { label: "Veranstaltungen ansehen", href: "#events", variant: "primary" },
-          { label: "Kontaktbereich", href: "#contact", variant: "secondary" }
+          { label: "Zu den Event-Seiten", href: "events.html", variant: "primary" },
+          { label: "Kontaktseite", href: "contact.html", variant: "secondary" }
         ],
         provenance: "Kuratiert aus veröffentlichten BMCAG-Inhalten und lokal in dieses Projekt übernommen."
       },
@@ -43,9 +43,59 @@
         kicker: "Aus dem Netzwerk",
         title: "Eine Plattform für Austausch, Beratung und Kultur",
         text: "Die Vision der BMCAG ist eine unterstützende Plattform, die kulturelle Vielfalt feiert und den Zusammenhalt innerhalb der Gemeinschaft stärkt.",
-        href: "#mission",
-        label: "Zur Mission"
+        href: "mission.html",
+        label: "Mission lesen"
       },
+      pages: [
+        {
+          kicker: "Leitbild",
+          title: "Mission",
+          text: "Vision, Werte und Schwerpunktbereiche der BMCAG im Uberblick.",
+          href: "mission.html"
+        },
+        {
+          kicker: "Programm",
+          title: "Events",
+          text: "Gemeinschaftstermine und visuelle Eindrucke aus dem Veranstaltungsjahr.",
+          href: "events.html"
+        },
+        {
+          kicker: "Angebot",
+          title: "Services",
+          text: "Kulturelle, soziale und bildungsbezogene Unterstutzung der Organisation.",
+          href: "services.html"
+        },
+        {
+          kicker: "Menschen",
+          title: "Team",
+          text: "Leitung, Stimmen aus der Gemeinschaft und die pragnanten Rollen im Verein.",
+          href: "team.html"
+        },
+        {
+          kicker: "Bilder",
+          title: "Galerie",
+          text: "Lokale Aufnahmen aus Gebet, Sport und gemeinsamen Treffen.",
+          href: "gallery.html"
+        },
+        {
+          kicker: "Netzwerk",
+          title: "Partner",
+          text: "Partnerorganisationen und regionale Verankerung der BMCAG.",
+          href: "partners.html"
+        },
+        {
+          kicker: "Downloads",
+          title: "Ressourcen",
+          text: "Ramadan-Kalender und weitere lokal eingebundene PDF-Dateien.",
+          href: "resources.html"
+        },
+        {
+          kicker: "Kontakt",
+          title: "Kontaktseite",
+          text: "Einstieg, Ansprechpartner und lokale Seitennavigation.",
+          href: "contact.html"
+        }
+      ],
       metrics: [
         { value: "3", label: "Partnerorganisationen" },
         { value: "3", label: "Kernservices" },
@@ -272,32 +322,32 @@
           {
             title: "Kontaktbereich",
             text: "Springen Sie direkt zum lokalen Kontaktabschnitt dieser Website.",
-            href: "#contact",
-            label: "Zum Kontaktbereich"
+            href: "contact.html",
+            label: "Zur Kontaktseite"
           },
           {
             title: "Startsektion",
             text: "Zurück zum Einstieg mit Überblick, Kennzahlen und Schnellzugriffen.",
-            href: "#top",
-            label: "Zur Startsektion"
+            href: "index.html",
+            label: "Zur Startseite"
           },
           {
             title: "Ressourcen",
             text: "Öffnen Sie die lokale Übersicht der Ramadan-Kalender und Downloads.",
-            href: "#resources",
-            label: "Zu den Ressourcen"
+            href: "resources.html",
+            label: "Zur Ressourcenseite"
           }
         ]
       },
       footer: {
         note: "Diese Website basiert auf lokal übernommenen BMCAG-Daten, synchronisiert am 2. April 2026.",
         links: [
-          { label: "Start", href: "#top" },
-          { label: "Team", href: "#leadership" },
-          { label: "Dienstleistungen", href: "#services" },
-          { label: "Galerie", href: "#gallery" },
-          { label: "Landesverbände", href: "#partners" },
-          { label: "Kontakt", href: "#contact" }
+          { label: "Start", href: "index.html" },
+          { label: "Team", href: "team.html" },
+          { label: "Dienstleistungen", href: "services.html" },
+          { label: "Galerie", href: "gallery.html" },
+          { label: "Landesverbande", href: "partners.html" },
+          { label: "Kontakt", href: "contact.html" }
         ]
       }
     };
@@ -319,7 +369,13 @@
           </span>
         </a>
 
-        
+        <div class="header-utility">
+          <p class="header-status">
+            <span class="header-status-dot" aria-hidden="true"></span>
+            Lokale Datenkopie
+          </p>
+          <a class="header-cta" href="resources.html">Ramadan Kalender</a>
+        </div>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           Menu
@@ -353,6 +409,18 @@
 
           <div class="metric-ribbon" id="metric-ribbon"></div>
         </div>
+      </section>
+
+      <section class="section page-links reveal" id="site-pages">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Seiten</p>
+            <h2>Mehrere HTML-Seiten fur BMCAG</h2>
+          </div>
+          <p class="section-copy">Die Startseite bleibt der Einstieg. Die einzelnen Themenbereiche stehen jetzt auch als eigene HTML-Seiten bereit.</p>
+        </div>
+
+        <div class="page-links-grid" id="page-links-grid"></div>
       </section>
 
       <section class="section mission reveal" id="mission">
