@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BMCAG: Gemeinschaft, Veranstaltungen, Dienstleistungen, Team, Galerie und Ressourcen der Bangladeshi Muslim Community Association Germany.">
+  <title>BMCAG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="site-data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="page-frame">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Zur Startsektion">
+        <span class="brand-mark">B</span>
+        <span class="brand-copy">
+          <strong>BMCAG</strong>
+          <span>Bangladeshi Muslim Community Association Germany</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Navigation
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation"></nav>
+    </header>
+
+    <main id="top">
+      <section class="section hero reveal">
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-eyebrow"></p>
+          <h1 id="hero-title"></h1>
+          <p class="hero-summary" id="hero-summary"></p>
+          <div class="hero-actions" id="hero-actions"></div>
+          <p class="hero-provenance" id="hero-provenance"></p>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="hero-photo">
+            <img id="hero-image" alt="" loading="eager" fetchpriority="high">
+          </figure>
+
+          <article class="hero-story-card">
+            <p class="card-kicker" id="spotlight-kicker"></p>
+            <h2 id="spotlight-title"></h2>
+            <p id="spotlight-text"></p>
+            <a class="inline-link" id="spotlight-link" target="_blank" rel="noreferrer">Originalseite öffnen</a>
+          </article>
+
+          <div class="metric-ribbon" id="metric-ribbon"></div>
+        </div>
+      </section>
+
+      <section class="section mission reveal" id="mission">
+        <div class="section-heading">
+          <p class="eyebrow">Mission</p>
+          <h2 id="mission-title"></h2>
+          <p class="section-copy" id="mission-text"></p>
+        </div>
+
+        <div class="mission-layout">
+          <figure class="mission-banner">
+            <img id="mission-image" alt="" loading="lazy">
+          </figure>
+
+          <aside class="mission-note">
+            <p class="card-kicker">Schwerpunkte</p>
+            <ul class="mission-highlights" id="mission-highlights"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section events reveal" id="events">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Veranstaltungen</p>
+            <h2 id="events-title"></h2>
+          </div>
+          <p class="section-copy" id="events-text"></p>
+        </div>
+
+        <div class="events-grid" id="events-grid"></div>
+      </section>
+
+      <section class="section services reveal" id="services">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Dienstleistungen</p>
+            <h2 id="services-title"></h2>
+          </div>
+          <p class="section-copy" id="services-text"></p>
+        </div>
+
+        <div class="services-grid" id="services-grid"></div>
+      </section>
+
+      <section class="section leadership reveal" id="leadership">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Team</p>
+            <h2 id="leadership-title"></h2>
+          </div>
+          <p class="section-copy" id="leadership-text"></p>
+        </div>
+
+        <div class="leadership-grid" id="leadership-grid"></div>
+      </section>
+
+      <section class="section voices reveal" id="voices">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Stimmen</p>
+            <h2 id="voices-title"></h2>
+          </div>
+          <p class="section-copy" id="voices-text"></p>
+        </div>
+
+        <div class="voices-grid" id="voices-grid"></div>
+      </section>
+
+      <section class="section gallery reveal" id="gallery">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Galerie</p>
+            <h2 id="gallery-title"></h2>
+          </div>
+          <p class="section-copy" id="gallery-text"></p>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </section>
+
+      <section class="section network reveal">
+        <div class="network-panel" id="partners">
+          <div class="section-heading compact">
+            <p class="eyebrow">Netzwerk</p>
+            <h2 id="partners-title"></h2>
+            <p class="section-copy" id="partners-text"></p>
+          </div>
+
+          <div class="partner-stats" id="partner-stats"></div>
+          <div class="partners-grid" id="partners-grid"></div>
+        </div>
+
+        <div class="network-panel resources-panel" id="resources">
+          <div class="section-heading compact">
+            <p class="eyebrow">Ressourcen</p>
+            <h2 id="resources-title"></h2>
+            <p class="section-copy" id="resources-text"></p>
+          </div>
+
+          <div class="resource-toolbar">
+            <label class="resource-search-label" for="resource-search">Stadt suchen</label>
+            <input id="resource-search" class="resource-search" type="search" placeholder="z. B. Berlin oder Essen">
+            <p class="resource-count" id="resource-count" aria-live="polite"></p>
+          </div>
+
+          <div class="resource-grid" id="resource-grid"></div>
+        </div>
+      </section>
+
+      <section class="section contact reveal" id="contact">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Kontakt</p>
+            <h2 id="contact-title"></h2>
+          </div>
+          <p class="section-copy" id="contact-text"></p>
+        </div>
+
+        <div class="contact-grid" id="contact-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-note" id="footer-note"></p>
+      <div class="footer-links" id="footer-links"></div>
+    </footer>
+  </div>
+</body>
+</html>
