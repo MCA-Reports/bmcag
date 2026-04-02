@@ -181,6 +181,8 @@ body.is-scrolled .site-header {
   display: flex;
   align-items: center;
   min-width: 0;
+  width: clamp(12rem, 27vw, 22rem);
+  max-width: 100%;
   padding: 0.28rem;
   border-radius: 22px;
   background:
@@ -191,12 +193,14 @@ body.is-scrolled .site-header {
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
     0 16px 34px rgba(16, 34, 24, 0.08);
   overflow: hidden;
+  justify-self: start;
+  aspect-ratio: 963 / 350;
 }
 
 .header-art img {
   display: block;
   width: 100%;
-  height: clamp(4rem, 6vw, 4.8rem);
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 16px;
