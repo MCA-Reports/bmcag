@@ -126,7 +126,7 @@ function renderPageLinks() {
           <p class="card-kicker">${page.kicker}</p>
           <h3>${page.title}</h3>
           <p>${page.text}</p>
-          <span class="page-link-arrow">Seite ansehen</span>
+          <span class="page-link-arrow">Mehr erfahren</span>
         </a>
       `
     )
@@ -299,10 +299,10 @@ function renderResources(query = "") {
     item.city.toLowerCase().includes(normalized)
   );
 
-  elements.resourceCount.textContent = `${items.length} ${items.length === 1 ? "Download" : "Downloads"}`;
+  elements.resourceCount.textContent = `${items.length} ${items.length === 1 ? "PDF-Datei" : "PDF-Dateien"}`;
 
   if (!items.length) {
-    elements.resourceGrid.innerHTML = '<p class="empty-state">Keine Stadt gefunden.</p>';
+    elements.resourceGrid.innerHTML = '<p class="empty-state">Keine passende Stadt gefunden.</p>';
     return;
   }
 
